@@ -47,18 +47,32 @@ def generate_string(size):
 
 def generate_blocks(size):
     block_sizes = []
-    total_size = 0
-    i=0
-    while total_size <= size:
-        block_size = random.randint(20,30)
-        print(block_size)
-        block_sizes.append(block_size)
-        total_size += block_size
-
+    for i in range (5):
+        total_size = 0
+        block_sizes.append([])
+        block_sizes[i].append(0)
+        while total_size < size:
+            block_size = random.randint(20,30)
+            block_size = block_size if (total_size + block_size)<= size else block_size-((total_size + block_size)-size)
+            block_sizes[i].append(block_size)
+            total_size += block_size 
+            total_size = size if total_size > size else total_size
 
     string=generate_string(size)
-    string_copies=[string]*5
-    blocks = string_copies
+    blocks = []
+    for i in range(5):
+        acum=0
+        for j in range(len(block_sizes[i])-1):
+            left = acum
+            acum += block_sizes[i][j+1]
+            right= block_sizes[i][j+1] + left
+            # print(left, right, acum)
+            blocks.append(string[left:right])
+    # for i in block_sizes:
+    #     sum = 0
+    #     for j in i:
+    #         sum += j
+    #     print(sum, i)
 
     return blocks
 

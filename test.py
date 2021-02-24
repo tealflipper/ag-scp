@@ -2,16 +2,17 @@ from __future__ import print_function
 from random import randint as rand
 from tools import generate_blocks, generate_string, merge, overlap, prefix
 
-reso = overlap(x:="bacbca",y:="cacbc")
-resp = prefix(x,y)
-print("Strings: ", x, y)
-print("prefix: ",resp,"overlap: ",reso)
-reso = overlap(y,x)
-resp = prefix(y,x)
-print("prefix: ",resp,"overlap: ",reso, "\n")
-print("superstring: ", merge(x,y))
-
-print(generate_blocks(50))
+# reso = overlap(x:="bacbca",y:="cacbc")
+# resp = prefix(x,y)
+# print("Strings: ", x, y)
+# print("prefix: ",resp,"overlap: ",reso)
+# reso = overlap(y,x)
+# resp = prefix(y,x)
+# print("prefix: ",resp,"overlap: ",reso, "\n")
+# print("superstring: ", merge(x,y))
+blocks = generate_blocks(50)
+for string in blocks:
+    print(string)
 
 # class GA(object):
 #     def __init__(self, s1, s2):
