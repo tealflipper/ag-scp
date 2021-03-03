@@ -42,7 +42,9 @@ def merge(x,y):
         return prefix(y,x)[1]+x
 
 def generate_string(size):
+    # res = ''.join(secrets.choice(["a","c","t","g"]) for i in range(size))
     res = ''.join(secrets.choice(["1","0"]) for i in range(size))
+
     return res
 
 def generate_blocks(size):

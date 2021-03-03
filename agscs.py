@@ -26,7 +26,7 @@ def ag (n, d, m, sel, pc, cruza, pm, mut, selnat, numiter):
     padres, aptitud = poblacionInicial(m, n, d)
     mejoraptitud = max(aptitud)
     mejorpadre = padres[aptitud.index(mejoraptitud)]
-  
+    generacionMejor = 0
     generacion = 0
     generacionesSinMejora = 0
     while (generacionesSinMejora < numiter):
@@ -92,7 +92,7 @@ def calcularAptitud (x, d):
 
 # Obtiene la distancia de la ciudad i a la ciudad j
 def distancia(i, j, n, d):
-    return d[(i * n) + j] 
+    return d[(i * n) + j] #TODO: change form distance to overlap
 
 
 # Se seleccionan m padres.
