@@ -1,6 +1,7 @@
 from __future__ import print_function
 from random import randint as rand
-from tools import generate_blocks, generate_string, merge, overlap, prefix
+from tools import generateGraph, generate_blocks, generate_string, merge, overlap, prefix
+import sys
 
 # reso = overlap(x:="bacbca",y:="cacbc")
 # resp = prefix(x,y)
@@ -10,9 +11,18 @@ from tools import generate_blocks, generate_string, merge, overlap, prefix
 # resp = prefix(y,x)
 # print("prefix: ",resp,"overlap: ",reso, "\n")
 # print("superstring: ", merge(x,y))
-blocks = generate_blocks(50)
-for string in blocks:
-    print(string)
+if(len(sys.argv) < 1):
+        print("Sintaxis: tamaño_bloque")
+else:
+    blocks = generate_blocks(int(sys.argv[1]))
+
+
+overlapGraph = generateGraph(blocks)
+print(len(blocks))
+for element in overlapGraph:
+    for weight in element:
+        print(weight, end= " ")
+    print()
 
 # class GA(object):
 #     def __init__(self, s1, s2):

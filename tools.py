@@ -76,6 +76,21 @@ def generate_blocks(size):
 
     return blocks
 
+def generateGraph(blocks):
+    n = len(blocks)
+    matrix = []
+    for i in range(n):
+        matrix.append([])
+        for j in range(n):
+            if i != j:
+                # print(overlap(blocks[i],blocks[j]))
+                res = overlap(blocks[i],blocks[j])
+                matrix[i].append(-res[0])
+            else: matrix[i].append(9999999)
+    # for string in matrix:
+    #     print(string)
+    # print(n, len(matrix)*len(matrix[0]))
+    return matrix
 
 # i=1 
 # while i <= len(y) and i <= len(x):
